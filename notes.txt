@@ -1,0 +1,9 @@
+Idea: from a large QUBO, build an embeddable subQUBO with a maximum chain length of 4.
+    - do this by greedily choosing vertices to add to subQUBO based on embeddability.
+
+This is orthogonal to Kelly's embeddable cluster idea, which is:
+    - do embedding, using correlation matrix to inform embedding:
+        - weight of vertex v when doing dijkstra on var x is \sum_{var y on v} (1-corr(x,y))
+        instead of \sum_{var y on v} 1 (so correlated variables are more easily allowed to overlap).
+    - Contract some variables based on embedding overlap (and correlation).
+    - Repeat until no overlap.
